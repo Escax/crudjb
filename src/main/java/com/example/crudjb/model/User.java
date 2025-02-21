@@ -1,5 +1,6 @@
 package com.example.crudjb.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,9 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails;
-import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -19,7 +17,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class User {
 
     @Id
@@ -48,7 +45,8 @@ public class User {
     @Column(nullable = false, length = 50)
     private String documentType;
 
-    @Column(nullable = false, unique = true, length = 50)
+    @JsonProperty("documentNumber")
+    @Column(name = "document_number", nullable = false, unique = true, length = 50)
     private String documentNumber;
 
     @Column(nullable = false)
@@ -63,8 +61,6 @@ public class User {
     private LocalDateTime deletedAt;
 
     //Getter y setter generados por medio de lombok
-
-
 
 
 }
