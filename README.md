@@ -6,7 +6,7 @@ utiliza PostgreSQL como base de datos y se documenta con Swagger.
 
 - Java 17
 
-- Spring Boot 3 (Spring Web, Spring Data JPA, Spring Validation)
+- Spring Boot 3 (Spring Web, Spring Data JPA)
 
 - PostgreSQL como base de datos
 
