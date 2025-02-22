@@ -15,6 +15,10 @@ public class DepartmentService {
         this.departmentRepository = departmentRepository;
     }
 
+    public Department save(Department department) {
+        return departmentRepository.save(department);
+    }
+
     public List<Department> getAllDepartments(){
         return departmentRepository.findAll();
     }

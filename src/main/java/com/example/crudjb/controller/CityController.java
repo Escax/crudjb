@@ -4,10 +4,8 @@ import com.example.crudjb.model.City;
 import com.example.crudjb.service.CityService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +17,12 @@ public class CityController {
 
     public CityController(CityService cityService){
         this.cityService = cityService;
+    }
+
+    @Operation(summary = "Guarda la ciudad")
+    @PostMapping
+    public ResponseEntity<City> createCity(@RequestBody City city) {
+        return ResponseEntity.ok(cityService.save(city));
     }
 
     @Operation(summary = "Obtener todos las ciudades", description = "Retorna una lista completa de las ciudades")

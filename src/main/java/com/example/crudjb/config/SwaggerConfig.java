@@ -14,6 +14,6 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("CrudJb API ")
                         .version("1.0")
-                        .description("Api para gestionar usuarios, ciudades y direcciones"));
+                        .description("Api para gestionar usuarios, ciudades y direcciones - IMPORTANTE para crear departamentos y/o ciudades, primero hay que crear un pais"));
     }
 }

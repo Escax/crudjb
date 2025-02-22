@@ -13,7 +13,12 @@ public class CityService {
     private final CityRepository cityRepository;
 
     public CityService(CityRepository cityRepository){
+
         this.cityRepository = cityRepository;
+    }
+
+    public City save(City city) {
+        return cityRepository.save(city);
     }
 
     public List<City> getAllCities(){

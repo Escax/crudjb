@@ -12,7 +12,12 @@ public class CountryService {
     private final CountryRepository countryRepository;
 
     public CountryService(CountryRepository countryRepository){
+
         this.countryRepository = countryRepository;
+    }
+
+    public Country save(Country country) {
+        return countryRepository.save(country);
     }
 
     public List<Country> getAllCountries(){

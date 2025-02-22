@@ -4,10 +4,8 @@ import com.example.crudjb.model.Country;
 import com.example.crudjb.service.CountryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +17,12 @@ public class CountryController {
 
     public CountryController(CountryService countryService){
         this.countryService = countryService;
+    }
+
+    @Operation(summary = "Guardar Paises", description = "Guarda los Paises")
+    @PostMapping
+    public ResponseEntity<Country> createCountry(@RequestBody Country country) {
+        return ResponseEntity.ok(countryService.save(country));
     }
 
     @Operation(summary = "Obtener todos los Paises", description = "Retorna una lista completa de los Paises")
